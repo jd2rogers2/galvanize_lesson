@@ -1,0 +1,14 @@
+{
+  "name": "galvanize_lesson",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "jd2rogers2",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.2"
+  }
+}
