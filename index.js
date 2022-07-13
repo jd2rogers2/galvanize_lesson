@@ -14,7 +14,14 @@ function* transposer(twoDArr) {
     yield twoDArr[outerInd][innerInd];
   }
 };
-function* pairwiser(arr) {};
+function* pairwiser(arr) {
+  let i = -1;
+
+  while (i < arr.length - 1) {
+    i += 1;
+    yield arr[i] + arr[i + 1];
+  }
+};
 function* findPair(arr, sum) {};
 
 module.exports = {

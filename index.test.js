@@ -39,12 +39,12 @@ describe('let\'s learn generator functions* !!', () => {
 
   describe('pairwiser', () => {
     it('is a generator function', () => {
-      const generator = transposer();
+      const generator = pairwiser();
       expect(generator).toHaveProperty('next');
     });
 
-    it('', () => {
-      const generator = transposer([1, 9, 2, 4, 1, 4]);
+    it('returns the sum of the element at the index of the call iteration and the next element', () => {
+      const generator = pairwiser([1, 9, 2, 4, 1, 4]);
 
       [10, 11, 6, 5, 5].forEach(num => {
         expect(generator.next().value).toBe(num);
@@ -54,12 +54,12 @@ describe('let\'s learn generator functions* !!', () => {
 
   describe('findPair', () => {
     it('is a generator function', () => {
-      const generator = transposer();
+      const generator = findPair();
       expect(generator).toHaveProperty('next');
     });
 
-    it('finds a pair (order agnostic) that adds up to the sum', () => {
-      const generator = transposer([1, 9, 2, 4, 7, 4]);
+    it('finds each pair (order agnostic) that adds up to the sum', () => {
+      const generator = findPair([1, 9, 2, 4, 7, 4]);
 
       [[[9, 2], [2, 9]], [[4, 7], [7, 4]]].forEach(pairs => {
         expect(pairs).toContain(generator.next().value);
