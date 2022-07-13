@@ -59,10 +59,10 @@ describe('let\'s learn generator functions* !!', () => {
     });
 
     it('finds each pair (order agnostic) that adds up to the sum', () => {
-      const generator = findPair([1, 9, 2, 4, 7, 4]);
+      const generator = findPair([1, 9, 2, 4, 7, 4], 11);
 
-      [[[9, 2], [2, 9]], [[4, 7], [7, 4]]].forEach(pairs => {
-        expect(pairs).toContain(generator.next().value);
+      [[2, 9], [4, 7]].forEach(pair => {
+        expect(generator.next().value.sort()).toEqual(pair);
       })
     });
   });
