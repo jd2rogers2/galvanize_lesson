@@ -23,15 +23,44 @@ Output: The procedure will identify any of these pairs: (9, 2), (2, 9), (4, 7), 
 
 describe('let\'s learn generator functions* !!', () => {
   describe('transposer', () => {
-    it('does a thing', () => {});
+    it('is a generator function', () => {
+      const generator = transposer();
+      expect(generator).toHaveProperty('next');
+    });
+
+    it('outputs the elements of the input array in a transposed order', () => {
+      const generator = transposer([[1, 2, 3], [6, 5, 4]]);
+
+      const outputs = [1, 6, 2, 5, 3, 4];
+      outputs.forEach(num => {
+        expect(generator.next().value).toBe(num);
+      });
+    });
   });
 
   describe('pairwiser', () => {
-    it('does a thing', () => {});
+    it('is a generator function', () => {
+      const generator = transposer();
+      expect(generator).toHaveProperty('next');
+    });
+
+    it('', () => {
+      const generator = transposer([1, 9, 2, 4, 1, 4]);
+
+      expect(generator.next().value).toBe([10, 11, 6, 5, 5]);
+    });
   });
 
   describe('findPair', () => {
-    it('does a thing', () => {});
-  });
+    it('is a generator function', () => {
+      const generator = transposer();
+      expect(generator).toHaveProperty('next');
+    });
 
+    it('finds a pair (order agnostic) that adds up to the sum', () => {
+      const generator = transposer([1, 9, 2, 4, 7, 4]);
+
+      expect([[9, 2], [2, 9], [4, 7], [7, 4]]).toContain(generator.next().value);
+    });
+  });
 });
