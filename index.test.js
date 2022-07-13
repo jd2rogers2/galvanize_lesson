@@ -31,8 +31,7 @@ describe('let\'s learn generator functions* !!', () => {
     it('outputs the elements of the input array in a transposed order', () => {
       const generator = transposer([[1, 2, 3], [6, 5, 4]]);
 
-      const outputs = [1, 6, 2, 5, 3, 4];
-      outputs.forEach(num => {
+      [1, 6, 2, 5, 3, 4].forEach(num => {
         expect(generator.next().value).toBe(num);
       });
     });
@@ -47,7 +46,9 @@ describe('let\'s learn generator functions* !!', () => {
     it('', () => {
       const generator = transposer([1, 9, 2, 4, 1, 4]);
 
-      expect(generator.next().value).toBe([10, 11, 6, 5, 5]);
+      [10, 11, 6, 5, 5].forEach(num => {
+        expect(generator.next().value).toBe(num);
+      });
     });
   });
 
@@ -60,7 +61,9 @@ describe('let\'s learn generator functions* !!', () => {
     it('finds a pair (order agnostic) that adds up to the sum', () => {
       const generator = transposer([1, 9, 2, 4, 7, 4]);
 
-      expect([[9, 2], [2, 9], [4, 7], [7, 4]]).toContain(generator.next().value);
+      [[[9, 2], [2, 9]], [[4, 7], [7, 4]]].forEach(pairs => {
+        expect(pairs).toContain(generator.next().value);
+      })
     });
   });
 });
